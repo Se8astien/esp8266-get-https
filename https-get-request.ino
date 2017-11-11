@@ -3,7 +3,7 @@
 #include <ESP8266HTTPClient.h>
 
 
-const char* ssid     = "SSID;
+const char* ssid     = "SSID";
 const char* password = "PASSWD";
 
 const char* host = "test.com;
