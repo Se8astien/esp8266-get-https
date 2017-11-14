@@ -120,37 +120,37 @@ void loop() {
   String total_connected = root["datas"]["connected"];
   Serial.println(data);
   
-  if(total_activity.toInt() > 0){
+  if( 0 < total_activity.toInt() < 3 ){
     digitalWrite(greenLed, 1);
-    Serial.println("greenLed > 0 ");
-  }
-  if(total_activity.toInt() > 1 ){
-    digitalWrite(yellowLed, 1);
-     Serial.println("yellowLed > 1 ");
-  }
-  if(total_activity.toInt() >= 3){
-    digitalWrite(redLed, 1);
-     Serial.println("redLed >= 3 ");
-  }
-   if(total_activity.toInt() < 3){
+    digitalWrite(yellowLed, 0);
     digitalWrite(redLed, 0);
-    Serial.println("redLed < 3 ");
+  }
+ if( 3 <= total_activity.toInt() < 6 ){
+    digitalWrite(greenLed, 1);
+    digitalWrite(yellowLed, 1);
+    digitalWrite(redLed, 0);
+  }
+  if(total_activity.toInt() >= 6 ){
+    digitalWrite(greenLed, 1);
+    digitalWrite(yellowLed, 1);
+    digitalWrite(redLed, 1);
   }
   
   if(total_activity.toInt() == 0){
       digitalWrite(greenLed, 0);
       digitalWrite(yellowLed, 0);
       digitalWrite(redLed, 0);
-       Serial.println("total°activity 0");
-    }
- Serial.println(total_connected.toInt() > 0);
+      Serial.println("total°activity 0");
+   }
+ 
   if(total_connected.toInt() > 0){
     digitalWrite(blueLed, 1);
      Serial.println("blue led 1");
   }else {
     digitalWrite(blueLed, 0);
-     Serial.println("blue led 0");
-    }
+    Serial.println("blue led 0");
+  }
+  Serial.println("closing connection");
   Serial.println("closing connection");
   delay(10);
 }
