@@ -125,7 +125,7 @@ void loop() {
     digitalWrite(yellowLed, 0);
     digitalWrite(redLed, 0);
   }
- if( 3 <= total_activity.toInt() < 6 ){
+ if(  total_activity.toInt() >= 3 && total_activity.toInt() < 6 ){
     digitalWrite(greenLed, 1);
     digitalWrite(yellowLed, 1);
     digitalWrite(redLed, 0);
